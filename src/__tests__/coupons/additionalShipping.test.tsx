@@ -1,4 +1,5 @@
 import { renderHook, waitFor } from '@testing-library/react';
+import { Suspense } from 'react';
 import { RecoilRoot, useRecoilValue } from 'recoil';
 
 import { TOTAL_PRICE_OVER_100000_DATA, TOTAL_PRICE_OVER_50000_DATA } from '@/mocks/cart';
@@ -37,7 +38,7 @@ describe('제주도 및 도서 산간 지역 배송비 테스트', () => {
                 set(isAdditionalShippingState, IS_ADDITIONAL);
               }}
             >
-              {children}
+              <Suspense>{children}</Suspense>
             </RecoilRoot>
           ),
         },
